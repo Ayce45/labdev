@@ -1,0 +1,11 @@
+$TTL	60000
+@		IN	SOA	dnsara.ara.com.	root.dnsara.ara.com. (
+			1 ; serial
+			28 ; refresh
+			14 ; retry
+			3600000 ; expire
+			60000 ; negative cache ttl
+			)
+@		IN	NS	dnsara.ara.com.
+dnsara		IN	A	#TODO
+www		IN	A	#TODO
