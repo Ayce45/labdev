@@ -21,15 +21,15 @@ Seuls sont à modifier les fichiers mentionnés dans cette section. Des tests vo
 
 Votre travail consiste à configurer les machines et services suivants :
 (4 points)
- - faire un plan d'adressage de votre réseau privé en attribuant des blocs d'adresses à lana, lanb et lanc.
- - configurer les interfaces et routes de (box) pour permettre la transmission du traffic intérieur.
+ - faire un plan d'adressage de votre réseau privé en attribuant des blocs d'adresses à lana, lanb et lanc. ✔️
+ - configurer les interfaces et routes de (box) pour permettre la transmission du traffic intérieur. ✔️
 
 (4 points)
- - configurer le serveur DHCP sur (box) en donnant une adresse statique à (www) et en distribuant des adresses dynamiques sur les réseaux lana, lanb et lanc. On proposera 1.2.3.4 comme adresse de résolveur DNS.
+ - configurer le serveur DHCP sur (box) en donnant une adresse statique à (www) et en distribuant des adresses dynamiques sur les réseaux lana, lanb et lanc. On proposera 1.2.3.4 comme adresse de résolveur DNS. ✔️
    	      (alice) ping @bob
 	      (alice) ping 1.2.3.4
 	      (alice) ping @www
- - configurer le serveur HTTP (www) : modifier le fichier /etc/apache2/httpd.conf pour ajouter l'adresse de l'hôte.
+ - configurer le serveur HTTP (www) : modifier le fichier /etc/apache2/httpd.conf pour ajouter l'adresse de l'hôte. ✔️
    	      (alice) lynx @www
 
 (4 points)

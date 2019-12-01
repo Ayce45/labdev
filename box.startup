@@ -1,3 +1,6 @@
-#TODO
+ifconfig eth0 1.2.3.1 netmask 255.255.255.0
+ifconfig eth1 192.168.39.254 netmask 255.255.248.0
+ifconfig eth2 192.168.39.254 netmask 255.255.248.0
+ifconfig eth3 192.168.39.254 netmask 255.255.248.0
 
-
+route add default gw 1.2.3.4
