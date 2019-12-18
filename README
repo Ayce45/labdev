@@ -30,7 +30,7 @@ Votre travail consiste à configurer les machines et services suivants :
 	      (alice) ping 1.2.3.4
 	      (alice) ping @www
  - configurer le serveur HTTP (www) : modifier le fichier /etc/apache2/httpd.conf pour ajouter l'adresse de l'hôte. ✔️
-   	      (alice) lynx @www
+   	      (alice) lynx @www ✔️
 
 (4 points)
  - configurer un service de NAT sur (box) avec iptables pour autoriser les hôtes de lana, lanb et lanc à accéder à internet.
