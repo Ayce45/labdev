@@ -36,7 +36,7 @@ Votre travail consiste à configurer les machines et services suivants :
  - configurer un service de NAT sur (box) avec iptables pour autoriser les hôtes de lana, lanb et lanc à accéder à internet. ✔️
    	      (bob) lynx www.perdu.com ✔️
  - configurer le serveur DNS sur (isp) pour qu'il gère les machines de votre domaine : "www.ara.com" et "dnsara.ara.com" hébergé par (isp). (fichiers "/etc/bind/db.com.ara" et "db.1.2.3")
-   	      (diane) dig www.ara.com
+   	      (diane) dig www.ara.com ✔️
  - configurer un service de NAT sur (box) pour autoriser des connexions depuis internet vers "www.ara.com".
    	      (diane) lynx www.ara.com
 
