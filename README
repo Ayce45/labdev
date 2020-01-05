@@ -59,8 +59,8 @@ Votre travail consiste à configurer les machines et services suivants :
       iptables -t filter -A OUTPUT -o lo -j ACCEPT
       
  - ajouter des règles à la chaîne FORWARD pour que les services de NAT déjà configurés continuent d'opérer.
-   	      (bob) lynx www.perdu.com
-	      (diane) lynx www.ara.com
+   	      (bob) lynx www.perdu.com ✔️
+	      (diane) lynx www.ara.com ✔️
  - démarrer un serveur ssh sur (box) et autoriser la connexion depuis lana uniquement.
    	      (alice) ssh @box
    	      PAS DE CONNEXION (bob) ssh @box

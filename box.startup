@@ -7,5 +7,24 @@ route add default gw 1.2.3.4
 
 /etc/init.d/dhcp3-server start
 
+#initialiser les chaines
+iptables -t filter -F FORWARD
+iptables -t filter -F INPUT
+iptables -t filter -F OUTPUT
+iptables -t nat -F PREROUTING
+iptables -t nat -F POSTROUTING
+
+#comportement par defaut : drop
+iptables -t filter -P FORWARD DROP
+iptables -t filter -P INPUT DROP
+iptables -t filter -P OUTPUT DROP
+
+#connexions locales
+iptables -t filter -A INPUT -i lo -j ACCEPT
+iptables -t filter -A OUTPUT -o lo -j ACCEPT
+
 iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 iptables -t nat -A PREROUTING -i eth0 -j DNAT --to 192.168.48.100
+
+iptables -A FORWARD -o eth0 -j ACCEPT
+iptables -A FORWARD -i eth0 -j ACCEPT
