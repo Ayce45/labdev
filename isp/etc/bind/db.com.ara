@@ -8,4 +8,4 @@ $TTL	60000
 			)
 @		IN	NS	dnsara.ara.com.
 dnsara		IN	A	1.2.3.4
-www		IN	A	192.168.48.100
+www		IN	A	1.2.3.1
