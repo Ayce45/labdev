@@ -65,11 +65,11 @@ Votre travail consiste à configurer les machines et services suivants :
    	      (alice) ssh @box ✔️
    	      PAS DE CONNEXION (bob) ssh @box ✔️
  - ajouter des règles de NAT sur (box) pour autoriser des connexions depuis lana et lanb vers "www.ara.com".
-   	      (alice) lynx www.ara.com
+   	      (alice) lynx www.ara.com ✔️
  - vous ne souhaitez pas autoriser vos salariés ayant des machines dans lanb à se connecter sur le site subversif "www.ahcaira.com", il faut donc ajouter une règle de filtrage avec l'utilitaire iptables sur (box). Évidemment les utilisateurs connectés sur lana gardent le droit d'accéder à cette page web.
-   	      PAS DE CONNEXION (bob) lynx www.ahcaira.com
-	      (bob) lynx www.perdu.com
-	      (alice) lynx www.ahcaira.com
+   	      PAS DE CONNEXION (bob) lynx www.ahcaira.com ✔️
+	      (bob) lynx www.perdu.com ✔️
+	      (alice) lynx www.ahcaira.com ✔️
  
 == Modalités de retour du devoir ==
 

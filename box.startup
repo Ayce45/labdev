@@ -1,39 +1,58 @@
-ifconfig eth0 1.2.3.1 netmask 255.255.255.0
+# Configuration des interfaces
+ifconfig eth0 1.2.3.147 netmask 255.255.255.0
 ifconfig eth1 192.168.39.254 netmask 255.255.248.0
 ifconfig eth2 192.168.47.254 netmask 255.255.248.0
 ifconfig eth3 192.168.55.254 netmask 255.255.248.0
 
+# Configuration de la route par defaut
 route add default gw 1.2.3.4
 
+# Démarrage du serveur DHCP
 /etc/init.d/dhcp3-server start
 
-#initialiser les chaines
+#Initialiser les chaines
 iptables -t filter -F FORWARD
 iptables -t filter -F INPUT
 iptables -t filter -F OUTPUT
 iptables -t nat -F PREROUTING
 iptables -t nat -F POSTROUTING
 
-#comportement par defaut : drop
+#Comportement par defaut : drop
 iptables -t filter -P FORWARD DROP
 iptables -t filter -P INPUT DROP
 iptables -t filter -P OUTPUT DROP
 
-#connexions locales
+#Connexions locales
 iptables -t filter -A INPUT -i lo -j ACCEPT
 iptables -t filter -A OUTPUT -o lo -j ACCEPT
 
+# Configuration d'un service de NAT pour autoriser les hôtes de lana, lanab et lanc a accéder à internet
 iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+
+# Configuration d'un service de NAT pour autoriser des connexion depuis internet vers www.ara.com
 iptables -t nat -A PREROUTING -i eth0 -j DNAT --to 192.168.48.100
 
+# Configuration d'une régles FORWARD pour que les ervices de NAt déjà configurés continent d'opérer
 iptables -A FORWARD -o eth0 -j ACCEPT
 iptables -A FORWARD -i eth0 -j ACCEPT
 
+# Démarrage du serveur SSH
 /etc/init.d/ssh start
 
+# Configuration de l'autorisation de la connexion depuis lana uniquement
 iptables -t filter -i eth1 -A INPUT -p TCP --dport 22 -j ACCEPT
 iptables -t filter -A OUTPUT -p TCP --sport 22 -j ACCEPT
 
-#iptables -t filter -i eth1 -A INPUT -p TCP --dport 80 -j ACCEPT
-#iptables -t filter -i eth2 -A INPUT -p TCP --dport 80 -j ACCEPT
-#iptables -t filter -A OUTPUT -p TCP --sport 80 -j ACCEPT
+# Configuration de l'autorisation des connexion depuis lana et lanb vers www.ara.com
+iptables -A FORWARD -i eth1 -o eth3 -j ACCEPT
+iptables -A FORWARD -i eth3 -o eth1 -j ACCEPT
+iptables -A FORWARD -i eth2 -o eth3 -j ACCEPT
+iptables -A FORWARD -i eth3 -o eth2 -j ACCEPT
+
+iptables -t nat -A PREROUTING -s 192.168.32.0/19 -d 1.2.3.147 -p TCP --dport 80 -j DNAT --to-destination 192.168.48.100
+
+# Configuration du deny de www.ahcaira.com du lanb
+iptables -t nat -A PREROUTING -s 192.168.40.0/21 -d 9.9.9.9 -j DROP
+
+
+
