@@ -33,6 +33,12 @@ Votre travail consiste à configurer les machines et services suivants :
 (4 points)
  - faire un plan d'adressage de votre réseau privé en attribuant des blocs d'adresses à lana, lanb et lanc. ✔️
 
+| LAN | Subnet Address | Host Address Range            | Broadcast Address |
+|-----|----------------|-------------------------------|-------------------|
+| A   | 192.168.32.0   | 192.168.32.1 - 192.168.39.254 | 192.168.39.255    |
+| B   | 192.168.40.0   | 192.168.40.1 - 192.168.47.254 | 192.168.47.255    |
+| C   | 192.168.48.0   | 192.168.48.1 - 192.168.55.254 | 192.168.55.255    |
+
 ![labdev](https://user-images.githubusercontent.com/32338891/72202465-1ad6a200-3460-11ea-9add-104e3f330022.png)
 
  - configurer les interfaces et routes de (box) pour permettre la transmission du traffic intérieur. ✔️
