@@ -8,7 +8,6 @@
 | 1.2.3.147/24              | 192.168.32.0/19         |
 
 Les enregistrements pcap sont stocker dans un dossier caché .pcap. <br>
-Tout le projet a été suivie par un git et un depos github disponible ici : https://github.com/Ayce45/labdev
 
 >L'objectif de ce devoir est de configurer le réseau de votre petite entreprise raccordée à internet : configuration des interfaces, des routes, DHCP, DNS, NAT, pare-feu. 
 
